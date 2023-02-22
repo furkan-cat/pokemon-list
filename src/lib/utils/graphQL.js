@@ -14,6 +14,7 @@ export const graphql = {
       }
 
       const { data } = await response.json();
+      
       return data;
     } catch (err) {
       throw err;

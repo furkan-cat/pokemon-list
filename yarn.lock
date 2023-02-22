@@ -869,6 +869,11 @@ is-core-module@^2.9.0:
   dependencies:
     has "^1.0.3"
 
+jotai-cache@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/jotai-cache/-/jotai-cache-0.2.0.tgz#d4d9de17028933c887f33ba16d848c458de53512"
+  integrity sha512-l4LsKvR/dUAI+Gh5b3UwIJr7q2hTk03KJWVAqCNaOW1A98cO76dHP61PlX9MprJ4yymXeGTTylsYdMlq8+WIiw==
+
 jotai@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/jotai/-/jotai-2.0.2.tgz#52728e91de61742263e40fda79a367ab4649506c"

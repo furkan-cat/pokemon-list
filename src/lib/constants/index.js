@@ -1,11 +1,11 @@
 export const filterButtons = [
-  "Grass",
-  "Poison",
-  "Fire",
-  "Flying",
-  "Water",
-  "Bug",
-  "Normal",
+  "grass",
+  "poison",
+  "fire",
+  "flying",
+  "water",
+  "bug",
+  "normal",
 ];
 
 export const tableHeaders = ["Name", "HEIGHT", "WEIGHT", "TYPES"];

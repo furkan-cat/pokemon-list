@@ -13,6 +13,7 @@
     "@mantine/core": "^5.10.4",
     "@mantine/hooks": "^5.10.4",
     "jotai": "^2.0.2",
+    "jotai-cache": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1"
