@@ -5,7 +5,7 @@ import {
   apiAtom,
   inputAtom,
   renderAtom,
-} from "../../lib/store/pokemons";
+} from "../../lib/store/atoms";
 
 const PokemonSearch = () => {
   const [input, setInput] = useAtom(inputAtom);

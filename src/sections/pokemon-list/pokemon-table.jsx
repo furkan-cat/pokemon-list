@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useAtom } from "jotai/react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Box, createStyles, Table } from "@mantine/core";
-import { apiAtom, renderAtom } from "../../lib/store/pokemons";
+import { apiAtom, renderAtom } from "../../lib/store/atoms";
 import { tableHeaders } from "../../lib/constants";
 
 const useStyles = createStyles((theme) => ({

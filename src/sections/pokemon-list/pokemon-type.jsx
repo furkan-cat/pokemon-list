@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAtom } from "jotai/react";
 import { Button, Group } from "@mantine/core";
-import { activeButton, apiAtom, renderAtom } from "../../lib/store/pokemons";
+import { activeButton, apiAtom, renderAtom } from "../../lib/store/atoms";
 import { filterButtons } from "../../lib/constants";
 
 const PokomonListTypes = () => {
@@ -18,7 +18,7 @@ const PokomonListTypes = () => {
     setRenderState({ data: { pokemon_v2_pokemon: filteredVal } });
     setActive(index);
   };
-  console.log(active);
+  
   return (
     <Group
       mt="sm"

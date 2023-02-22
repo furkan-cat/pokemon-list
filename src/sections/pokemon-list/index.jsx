@@ -1,8 +1,7 @@
 import { Container } from "@mantine/core";
-import React, { useState } from "react";
-import PokemonSearch from "./PokemonSearch";
-import PokemonTable from "./PokemonTable";
-import PokomonListTypes from "./PokomonListTypes";
+import PokemonSearch from "./pokemon-search";
+import PokemonTable from "./pokemon-table";
+import PokomonListTypes from "./pokemon-type";
 
 const PokemonList = () => {
   return (

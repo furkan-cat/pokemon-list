@@ -1,8 +1,9 @@
-import Home from "./pages";
-import "./App.css";
-import PokemonDetail from "./pages/pokemon-detail";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { Modal } from "@mantine/core";
+import PokemonDetail from "./pages/pokemon-detail";
+import Home from "./pages/home";
+import "./App.css";
+
 
 function App() {
   const location = useLocation();
