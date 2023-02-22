@@ -1,0 +1,33 @@
+thead tr {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+tr > td {
+  border-top: none !important;
+  text-align: center;
+  font-size: 14.5px !important;
+  font-weight: 500;
+}
+
+thead tr th {
+  text-align: center !important;
+}
+
+thead tr th:not(:first-child) {
+  border-left: 2px solid #86868696;
+  border-right: 2px solid #86868696;
+}
+
+tbody tr:hover {
+  cursor: pointer;
+  background-color: #ffa60026;
+}
+
+tbody tr td:not(:first-child) {
+  border-left: 2px solid #86868696;
+  border-right: 2px solid #86868696;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
