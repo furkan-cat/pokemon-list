@@ -1,19 +1,30 @@
 import { Button, Group, Input, Stack, Text } from "@mantine/core";
 import { useAtom } from "jotai/react";
-import React, { useState } from "react";
-import { pokemons } from "../../lib/store/pokemons";
+import {
+  activeButton,
+  apiAtom,
+  inputAtom,
+  renderAtom,
+} from "../../lib/store/pokemons";
 
 const PokemonSearch = () => {
-  const [renderData, setRenderData] = useState();
-  const [value] = useAtom(pokemons);
+  const [input, setInput] = useAtom(inputAtom);
+  const [active, setActive] = useAtom(activeButton);
+  const [value] = useAtom(apiAtom);
+  const [renderState, setRenderState] = useAtom(renderAtom);
 
   const clickHandler = () => {
+    setActive("");
     if (input.length > 0) {
-      setRenderData(filteredData);
+      const filteredVal = value.data?.pokemon_v2_pokemon.filter((item) =>
+        item.name.includes(input)
+      );
+      setRenderState({ data: { pokemon_v2_pokemon: filteredVal } });
     } else {
-      setRenderData(value.data?.pokemon_v2_pokemon);
+      setRenderState(value);
     }
   };
+
   return (
     <Stack align="center">
       <Text size="lg">Search Your Pokemon</Text>

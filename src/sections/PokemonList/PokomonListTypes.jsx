@@ -1,20 +1,24 @@
-import { Button, Group } from "@mantine/core";
+import React, { useState } from "react";
 import { useAtom } from "jotai/react";
-import React from "react";
+import { Button, Group } from "@mantine/core";
+import { activeButton, apiAtom, renderAtom } from "../../lib/store/pokemons";
 import { filterButtons } from "../../lib/constants";
-import { pokemons } from "../../lib/store/pokemons";
 
 const PokomonListTypes = () => {
-  const [value] = useAtom(pokemons);
+  const [value] = useAtom(apiAtom);
+  const [renderState, setRenderState] = useAtom(renderAtom);
+  const [active, setActive] = useAtom(activeButton);
 
-  const filterButtonsHandler = (val) => {
-    const filteredButttonsData = value.data?.pokemon_v2_pokemon.filter((item) =>
+  const filterButtonsHandler = (val, index) => {
+    const filteredVal = value.data?.pokemon_v2_pokemon.filter((item) =>
       item.pokemon_v2_pokemontypes.some((s) =>
         s.pokemon_v2_type.name.includes(val)
       )
     );
-    setRenderData(filteredButttonsData);
+    setRenderState({ data: { pokemon_v2_pokemon: filteredVal } });
+    setActive(index);
   };
+  console.log(active);
   return (
     <Group
       mt="sm"
@@ -26,7 +30,7 @@ const PokomonListTypes = () => {
       }}
       className="hide-scroll"
     >
-      {filterButtons.map((item) => (
+      {filterButtons.map((item, i) => (
         <Button
           key={item}
           bg="bgTable.0"
@@ -41,8 +45,8 @@ const PokomonListTypes = () => {
               backgroundColor: theme.colors.bgButton[0],
             },
           })}
-          onClick={() => filterButtonsHandler(item)}
-          className="capitalize"
+          onClick={() => filterButtonsHandler(item, i)}
+          className={`capitalize ${i === active ? "active" : ""}`}
         >
           {item}
         </Button>

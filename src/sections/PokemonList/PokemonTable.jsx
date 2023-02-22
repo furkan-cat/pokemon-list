@@ -1,24 +1,35 @@
-import { Box, Table } from "@mantine/core";
+import React, { useEffect } from "react";
 import { useAtom } from "jotai/react";
-import React, { useMemo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Box, createStyles, Table } from "@mantine/core";
+import { apiAtom, renderAtom } from "../../lib/store/pokemons";
 import { tableHeaders } from "../../lib/constants";
-import { pokemons } from "../../lib/store/pokemons";
+
+const useStyles = createStyles((theme) => ({
+  header: {
+    position: "sticky",
+    top: 0,
+    backgroundColor: theme.colors.bgTable[0],
+  },
+}));
 
 const PokemonTable = () => {
-  
-  const [value] = useAtom(pokemons);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { classes, cx } = useStyles();
+  const [value] = useAtom(apiAtom);
+  const [renderState, setRenderState] = useAtom(renderAtom);
 
-  const filteredData = useMemo(() => {
-    return value.data?.pokemon_v2_pokemon.filter((item) =>
-      item.name.includes(input)
-    );
-  }, [input, value.data]);
+  useEffect(() => {
+    setRenderState(value);
+  }, []);
 
   return (
     <Box
       mt="sm"
       sx={{
-        overflowX: "scroll",
+        overflow: "scroll",
+        height: "575px",
       }}
       className="hide-scroll"
     >
@@ -28,7 +39,7 @@ const PokemonTable = () => {
         horizontalSpacing="xs"
         withColumnBorders={false}
       >
-        <thead>
+        <thead className={cx(classes.header)}>
           <tr>
             {tableHeaders.map((item) => (
               <th key={item}>{item}</th>
@@ -36,7 +47,7 @@ const PokemonTable = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredData?.map((item) => {
+          {renderState?.data?.pokemon_v2_pokemon?.map((item) => {
             const types = item.pokemon_v2_pokemontypes.map(
               ({ pokemon_v2_type }) => pokemon_v2_type.name
             );

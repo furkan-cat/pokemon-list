@@ -9,6 +9,20 @@ tr > td {
   font-weight: 500;
 }
 
+thead {
+  position: sticky;
+  top: 0;
+  transition: box-shadow 150ms ease;
+}
+
+thead::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 thead tr th {
   text-align: center !important;
 }
@@ -34,4 +48,8 @@ tbody tr td:not(:first-child) {
 
 .hide-scroll::-webkit-scrollbar {
   display: none;
+}
+
+.active {
+  background-color: #ffa400 !important;
 }
