@@ -1,6 +1,6 @@
 import { useAtom } from "jotai/react";
 import { Container, Flex, LoadingOverlay } from "@mantine/core";
-import PokemonList from "../sections/PokemonList/pokemon-list";
+import PokemonList from "../sections/pokemon-list";
 import { apiAtom } from "../lib/store/atoms";
 
 function Home() {
